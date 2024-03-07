@@ -1,6 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config({ path: "./.env" })
 import express from "express"
+import userRouter from "./routes/user.route.js"
 
 const port = process.env.PORT || 3000
 
@@ -9,6 +10,8 @@ const app = express()
 const myFunction = (name: String) => {
   console.log("hello myname is: ", name)
 }
+
+app.use("/user", userRouter)
 
 app.get("/", (req, res) => {
   myFunction("Toufique Al Ajay")
